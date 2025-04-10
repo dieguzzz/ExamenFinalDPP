@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="resultado_busqueda.css" />
+  <title>ITSE - Información del Edificio</title>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="titulo-completo">
+        <a href="app.component.html"><h1>ITSE</h1></a>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle"></i>
+      </div>
+    </header>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-area">
+      <div class="search-box">
+        <i class="fas fa-search" style="color: #666;"></i>
+        <input type="text" placeholder="Buscar">
+        <button class="search-button">Buscar</button>
+        <button class="filter-button" id="filterBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      
+      <!-- Filtros desplegables -->
+      <div class="filter-dropdown" id="filterDropdown">
+        <div class="filter-content">
+          <div class="filter-column">
+            <h3>Tipo de salón</h3>
+            <div class="checkbox-item">
+              <input type="checkbox" id="salon" name="tipoSalon" value="salon">
+              <label for="salon">Salón</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="laboratorio" name="tipoSalon" value="laboratorio">
+              <label for="laboratorio">Laboratorio</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="cafeteria" name="tipoSalon" value="cafeteria">
+              <label for="cafeteria">Cafetería</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="banos" name="tipoSalon" value="banos">
+              <label for="banos">Baños</label>
+            </div>
+          </div>
+          
+          <div class="filter-column">
+            <h3>Pisos</h3>
+            <div class="checkbox-item">
+              <input type="checkbox" id="p2" name="piso" value="p2">
+              <label for="p2">P2</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="n1" name="piso" value="n1">
+              <label for="n1">N1</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="pb" name="piso" value="pb">
+              <label for="pb">PB</label>
+            </div>
+            <div class="checkbox-item">
+              <input type="checkbox" id="s1" name="piso" value="s1">
+              <label for="s1">-1</label>
+            </div>
+          </div>
+        </div>
+        <div class="filter-actions">
+          <button class="apply-button">Aplicar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+      <!-- Tarjeta de edificio -->
+      <div class="edificio-card">
+        <div class="edificio-imagen">
+          <p>Imagen del edificio</p>
+        </div>
+        <div class="edificio-info">
+          <h2>Edificio Tal</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+             Sed euismod auctor enim eget gravida. Suspendisse fringilla leo ut bibendum congue. Nullam tempor tincidunt augue a rutrum.</p>
+        </div>
+      </div>
+
+      <!-- Videos -->
+      <div class="videos-section">
+        <div class="video-card">
+          <p>Video pasillo</p>
+        </div>
+        <div class="video-card">
+          <p>Video como llegar</p>
+        </div>
+      </div>
+
+      <!-- Contenido relacionado -->
+      <div class="related-content">
+        <div class="related-header">
+          <p>Contenido Relacionado</p>
+        </div>
+        <div class="related-card">
+          <div class="related-video">
+            <p>Video pasillo</p>
+          </div>
+          <div class="related-description">
+            <p>Descripción</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ayuda -->
+      <div class="help-section">
+        <a href="ayuda.html" class="help-link">¿Necesita Ayuda?</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-completo">
+        <a href="app.component.html"><h1>ITSE</h1></a>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <a href="#" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtn = document.getElementById('filterBtn');
+      const filterDropdown = document.getElementById('filterDropdown');
+      
+      filterBtn.addEventListener('click', function() {
+        filterDropdown.classList.toggle('show');
+      });
+      
+      // Cerrar el menú cuando se hace clic fuera de él
+      window.addEventListener('click', function(event) {
+        if (!event.target.matches('.filter-button') && 
+            !event.target.matches('.fa-bars') && 
+            !filterDropdown.contains(event.target)) {
+          if (filterDropdown.classList.contains('show')) {
+            filterDropdown.classList.remove('show');
+          }
+        }
+      });
+      
+      // Aplicar cambios
+      const applyButton = document.querySelector('.apply-button');
+      applyButton.addEventListener('click', function() {
+        // Aquí puedes añadir la lógica para aplicar los filtros
+        filterDropdown.classList.remove('show');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ITSE</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="pg_inicio_sesion.css" />
+  <!-- Fuente Jost solo para el cuadro -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Fondo con imagen -->
+  <img src="images/ITSE-PANAMA.jpg" alt="Fondo ITSE" class="fondo" />
+
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="titulo-completo">
+        <a href="app.component.html"><h1>ITSE</h1></a>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle" id="user-icon"></i>
+        <div class="menu-desplegable" id="menu-usuario">
+          <a href="app.component.html">Inicio</a>
+          <a href="pg_registro.html">Registrarse</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main style="flex: 1;">
+      <div class="login-card">
+        <h2 class="login-title">INGRESE SUS<br>CREDENCIALES</h2>
+        <label for="email">Correo Institucional:</label>
+        <input type="email" id="email" placeholder="Ingrese su correo" />
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" placeholder="Ingrese su contraseña" />
+
+        <button class="login-btn">Iniciar Sesión</button>
+
+        <p class="registro-link">¿No tienes una cuenta? <a href="pg_registro.html">Cree una aquí</a></p>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-completo">
+        <a href="app.component.html"><h1>ITSE</h1></a>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fas fa-times"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const userIcon = document.getElementById('user-icon');
+    const menu = document.getElementById('menu-usuario');
+
+    userIcon.addEventListener('click', () => {
+      menu.classList.toggle('mostrar');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!userIcon.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('mostrar');
+      }
+    });
+  </script>
+</body>
+</html>

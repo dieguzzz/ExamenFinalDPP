@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="app.component.css" />
+  <title>ITSE</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="titulo-completo">
+        <h1>ITSE</h1>
+        <div class="titulo2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+
+      <div class="icono-usuario">
+        <i class="fas fa-user-circle" id="user-icon"></i>
+        <div class="menu-desplegable" id="menu-usuario">
+          <a href="pg_inicio_sesion.html">Inicio de sesión</a>
+          <a href="pg_registro.html">Registrarse</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="buscador">
+        <h2>Buscador de salones</h2>
+        <p>Ingrese un código de salón</p>
+        <div class="input-container">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Buscar" />
+        </div>
+        <div class="ayuda">
+          <a href="ayuda.html">
+            <i class="fas fa-question-circle"></i>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-completo">
+        <h1>ITSE</h1>
+        <div class="footerT2">
+          <p>Instituto Técnico Superior</p>
+          <p>Especializado</p>
+        </div>
+      </div>
+      <div class="redes">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fas fa-times"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const userIcon = document.getElementById('user-icon');
+    const menu = document.getElementById('menu-usuario');
+
+    userIcon.addEventListener('click', () => {
+      menu.classList.toggle('mostrar');
+    });
+
+    window.addEventListener('click', (e) => {
+      if (!userIcon.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove('mostrar');
+      }
+    });
+  </script>
+</body>
+</html>
